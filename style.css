@@ -1,0 +1,27 @@
+.wheel{
+    text-align: center;
+}
+
+.button{
+    background-color: #008CBA; /* Blue */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.result-container{
+    text-align: center;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#result{
+    font-size: 70px;
+    font-family: Arial, Helvetica, sans-serif;
+}

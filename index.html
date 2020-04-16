@@ -1,0 +1,57 @@
+<html>
+    <title>Ingredient Selection</title>
+    <head>
+        <script type="text/javascript" src="./Winwheel.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div class='result-container'>
+            <h1 id='result'></h1>
+        </div>
+        <div style='text-align: center;'>
+            <img src="down_arrow.png" height="50px" width="50px"/>
+        </div>
+        <div class='wheel'>
+            <canvas id='canvas' width='880' height='300'>
+                Canvas not supported
+            </canvas>
+        </div>
+        <div style='text-align: center; margin-top:20px;'>
+            <button class='button' onclick="spin()">Spin!</button>
+        </div>
+        <script>
+            let theWheel = new Winwheel({
+                'numSegments' : 10,
+                'segments'    :
+                [
+                    {'fillStyle' : '#eae56f', 'text' : 'Chocolate'},
+                    {'fillStyle' : '#89f26e', 'text' : 'Pretzels'},
+                    {'fillStyle' : '#7de6ef', 'text' : 'Cereal'},
+                    {'fillStyle' : '#e7706f', 'text' : 'Brie'},
+                    {'fillStyle' : '#eae56f', 'text' : 'Tortilla'},
+                    {'fillStyle' : '#89f26e', 'text' : 'Wine'},
+                    {'fillStyle' : '#7de6ef', 'text' : 'Pasta'},
+                    {'fillStyle' : '#e7706f', 'text' : 'Berries'},
+                    {'fillStyle' : '#eae56f', 'text' : 'Coffee'},
+                    {'fillStyle' : '#89f26e', 'text' : 'Spinach'},
+                ],
+                'animation' :           // Specify the animation to use.
+                {
+                    'type'     : 'spinToStop',
+                    'duration' : 5,     // Duration in seconds.
+                    'spins'    : 8,     // Number of complete spins.
+                    'callbackFinished' : done
+                }
+            });
+
+            function spin(){
+                theWheel.startAnimation();
+            }
+
+            function done(indicatedSegment){
+                document.getElementById('result').innerText = indicatedSegment.text + "!";
+            }
+        </script>
+    </body>
+</html>
